@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html">
+  <af:panelGroupLayout id="pgl1">
+    <af:outputText value="#{pageFlowScope.username}" id="ot1"/>
+  </af:panelGroupLayout>
+  <p>
+    <af:commandButton text="Log Out" id="cb1"
+                      action="#{viewScope.userForm.logoutCommand}"/>
+  </p>
+  <af:selectOneChoice value="#{viewScope.userForm.model.attribute}" label="Label 1"
+                      id="soc1">
+    <f:selectItems value="#{viewScope.userForm.codeSelectItems}" id="si1"/>
+  </af:selectOneChoice>
+  <af:panelGroupLayout id="pgl2" layout="vertical">
+    <af:commandButton text="Add Product" id="cb3">
+      <af:showPopupBehavior popupId="p1"/>
+    </af:commandButton>
+    <af:commandButton text="Update Product" id="cb7">
+      <af:showPopupBehavior popupId="p2"/>
+    </af:commandButton>
+    <af:commandButton text="Remove Product" actionListener="#{viewScope.userForm.onRemoveButtonPressedListener}" id="cb8"/>
+  </af:panelGroupLayout>
+  <af:popup id="p2">
+    <af:dialog id="d2" type="none" title="Update Pruduct">
+      <af:inputText label="Product Id" id="it6" value="#{viewScope.userForm.product.productId}"
+                    readOnly="true"/>
+      <af:inputText label="Product Name" id="it7" value="#{viewScope.userForm.product.productName}"/>
+      <af:inputText label="Product Price" id="it8"  value="#{viewScope.userForm.product.price}"/>
+      <af:inputText label="Quantity" id="it9" value="#{viewScope.userForm.product.qtyOnHand}"/>
+      <af:commandButton text="Update Product" actionListener="#{viewScope.userForm.onUpdateButtonPressedListener}" id="cb6"/>
+    </af:dialog>
+  </af:popup>
+  <af:popup id="p1">
+    <af:dialog id="d1" title="Add Product"
+               dialogListener="#{viewScope.userForm.dialogListener}"
+               type="none">
+      <af:inputText label="Product Id" id="it2" value="#{viewScope.userForm.product.productId}"/>
+      <af:inputText label="Product Name" id="it3" value="#{viewScope.userForm.product.productName}"/>
+      <af:inputText label="Product Price" id="it4"  value="#{viewScope.userForm.product.price}"/>
+      <af:inputText label="Quantity" id="it5" value="#{viewScope.userForm.product.qtyOnHand}"/>
+      <af:commandButton text="Save Product" actionListener="#{viewScope.userForm.onAddButtonPressedListener}" id="cb5"/>
+    </af:dialog>
+  </af:popup>
+  <af:table var="row" value="#{viewScope.userForm.products}" rowBandingInterval="0" id="t1"
+            width="430" rowSelection="single"
+            selectionListener="#{viewScope.userForm.onSelect}">
+    <af:column sortable="false" headerText="Product#" id="c4">
+      <af:outputText value="#{row.productId}" id="ot3"/>
+    </af:column>
+    <af:column sortable="false" headerText="Category" id="c5">
+      <af:outputText value="#{row.category.categoryName}" id="ot2"/>
+    </af:column>
+    <af:column sortable="false" headerText="Name" id="c3">
+      <af:outputText value="#{row.productName}" id="ot4"/>
+    </af:column>
+    <af:column sortable="false" headerText="Price" id="c1">
+      <af:outputText value="#{row.price}" id="ot6"/>
+    </af:column>
+    <af:column sortable="false" headerText="Quantity" id="c2">
+      <af:outputText value="#{row.qtyOnHand}" id="ot5"/>
+    </af:column>
+  </af:table>
+</jsp:root>

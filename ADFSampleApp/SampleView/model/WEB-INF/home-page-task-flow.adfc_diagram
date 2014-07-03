@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="linkStyle">Direct</property>
+   </OverallProperties>
+   <View
+      id="View2">
+      <property
+         name="activityId">home_view</property>
+      <property
+         name="page">/home_view.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>home_view&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">204.19531</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">183.0</property>
+   </View>
+   <TaskFlowReturn
+      id="TaskFlowReturn3">
+      <property
+         name="activityId">login</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>login&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  login&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">275.5459</property>
+      <property
+         name="x">517.0</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowReturn3">
+      <property
+         name="fromOutcome">logout</property>
+      <property
+         name="sdm:polyPoints">R50,224.0,203.84473,476.0,275.1953,L50</property>
+   </ControlFlowCase>
+</SDM>

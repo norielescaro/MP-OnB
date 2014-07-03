@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl1">
+    <af:inputText value="#{viewScope.loginForm.username}" label="Username" id="it1"/>
+    <af:inputText  value="#{viewScope.loginForm.password}" label="Password" id="it2"/>
+    <af:commandButton text="Login" id="cb1" action="#{viewScope.loginForm.loginCommand}"/>
+    <af:commandButton text="Register" id="cb2"/>
+  </af:panelGroupLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:loginForm-->
+</jsp:root>

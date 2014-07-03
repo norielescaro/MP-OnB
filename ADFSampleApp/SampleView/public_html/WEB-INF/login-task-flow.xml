@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="login-task-flow">
+    <default-activity id="__1">login</default-activity>
+    <return-value-definition id="__16">
+      <name id="__17">username</name>
+      <value>#{pageFlowScope.username}</value>
+    </return-value-definition>
+    <managed-bean id="__14">
+      <managed-bean-name id="__13">loginForm</managed-bean-name>
+      <managed-bean-class id="__15">com.sample.view.backing.LoginForm</managed-bean-class>
+      <managed-bean-scope id="__12">view</managed-bean-scope>
+    </managed-bean>
+    <view id="login">
+      <page>/login.jsff</page>
+    </view>
+    <task-flow-return id="home">
+      <outcome id="__2">
+        <name>home</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="register">
+      <outcome id="__8">
+        <name>register</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">login</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__7">login</from-outcome>
+        <to-activity-id id="__6">home</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">register</from-outcome>
+        <to-activity-id id="__9">register</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
