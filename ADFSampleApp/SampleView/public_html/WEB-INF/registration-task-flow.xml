@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="registration-task-flow">
+    <default-activity id="__1">registration_page</default-activity>
+    <view id="registration_page">
+      <page>/registration_page.jsff</page>
+    </view>
+    <task-flow-return id="done">
+      <outcome id="__2">
+        <name>done</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">registration_page</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__7">done</from-outcome>
+        <to-activity-id id="__6">done</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

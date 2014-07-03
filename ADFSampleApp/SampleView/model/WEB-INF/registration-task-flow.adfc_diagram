@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">registration_page</property>
+      <property
+         name="page">/registration_page.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>registration_page&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">223.59766</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">293.0</property>
+   </View>
+   <TaskFlowReturn
+      id="TaskFlowReturn3">
+      <property
+         name="activityId">done</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>done&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  done&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">301.94824</property>
+      <property
+         name="x">729.0</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowReturn3">
+      <property
+         name="fromOutcome">done</property>
+      <property
+         name="sdm:polyPoints">R50,334.0,223.24707,688.0,301.59766,L50</property>
+   </ControlFlowCase>
+</SDM>
