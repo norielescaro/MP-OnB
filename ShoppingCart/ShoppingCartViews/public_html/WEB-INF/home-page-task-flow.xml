@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="home-page-task-flow">
+    <default-activity id="__1">view1</default-activity>
+    <managed-bean id="__14">
+      <managed-bean-name id="__15">homePageForm</managed-bean-name>
+      <managed-bean-class id="__12">com.shopping.cart.view.HomePageForm</managed-bean-class>
+      <managed-bean-scope id="__13">view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__24">
+      <managed-bean-name id="__25">userSession</managed-bean-name>
+      <managed-bean-class id="__27">com.shopping.cart.view.UserSession</managed-bean-class>
+      <managed-bean-scope id="__26">session</managed-bean-scope>
+    </managed-bean>
+    <view id="view1">
+      <page>/homePage.jsff</page>
+    </view>
+    <task-flow-return id="login">
+      <outcome id="__2">
+        <name>login</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="view_cart">
+      <outcome id="__3">
+        <name>view_cart</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="admin_page">
+      <outcome id="__16">
+        <name>admin_page</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__4">
+      <from-activity-id id="__5">view1</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome id="__8">view</from-outcome>
+        <to-activity-id id="__6">view_cart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">logout</from-outcome>
+        <to-activity-id id="__9">login</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome id="__19">go_to_admin</from-outcome>
+        <to-activity-id id="__17">admin_page</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

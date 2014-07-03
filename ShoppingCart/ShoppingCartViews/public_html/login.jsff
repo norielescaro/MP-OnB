@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:h="http://java.sun.com/jsf/html">
+  <af:inputText label="Username" id="it1" value="#{loginForm.username}"/>
+  <af:inputText label="Password" id="it2" value="#{loginForm.password}"/>
+  <af:commandButton text="Log In" id="cb1"/>
+  <af:commandButton text="Sign Up" id="cb2"/>
+</jsp:root>

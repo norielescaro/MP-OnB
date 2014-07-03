@@ -1,0 +1,404 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">11831cb1-8e6b-4fb7-8b21-1087aab69b6b</identifier>
+  </ID>
+  <name>CUSTOMER_CART</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">23525e68-0095-42e6-a8c9-66c79a0a0636</identifier>
+      </ID>
+      <name>CUSTOMER_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">1f3f2eac-3ae4-4ce8-9aae-22a57ea3b461</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>CUSTOMER_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>CUSTOMER_CART</name>
+                  <identifier class="java.math.BigDecimal">20060</identifier>
+                  <schemaName>MYSHOP</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CUSTOMER_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>CUSTOMER_CART</name>
+              <identifier class="java.math.BigDecimal">20060</identifier>
+              <schemaName>MYSHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">2c9356f7-1ba5-4550-9d4f-4a65b082b955</identifier>
+      </ID>
+      <name>PRODUCT_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">88bfeb78-67d7-469f-a83b-c121a85919de</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>PRODUCT_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>CUSTOMER_CART</name>
+                  <identifier class="java.math.BigDecimal">20060</identifier>
+                  <schemaName>MYSHOP</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>PRODUCT_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>CUSTOMER_CART</name>
+              <identifier class="java.math.BigDecimal">20060</identifier>
+              <schemaName>MYSHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">ad36d1cf-fcbb-4a96-a870-3fca69d9eb46</identifier>
+      </ID>
+      <name>QUANTITY</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">6fa8d8b3-45be-4750-b6dd-ceba53ca3d14</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>QUANTITY</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>CUSTOMER_CART</name>
+                  <identifier class="java.math.BigDecimal">20060</identifier>
+                  <schemaName>MYSHOP</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>QUANTITY</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>CUSTOMER_CART</name>
+              <identifier class="java.math.BigDecimal">20060</identifier>
+              <schemaName>MYSHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">b2318ffc-6bb9-44c6-95c0-eb1b0082b28f</identifier>
+      </ID>
+      <name>CART_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">cb62e907-ef79-43ad-9499-6462311853f9</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>CART_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>CUSTOMER_CART</name>
+                  <identifier class="java.math.BigDecimal">20060</identifier>
+                  <schemaName>MYSHOP</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CART_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>CUSTOMER_CART</name>
+              <identifier class="java.math.BigDecimal">20060</identifier>
+              <schemaName>MYSHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">2e57a666-3b79-4f6b-81e4-00e5c4a034f7</identifier>
+      </ID>
+      <name>CUSTOMER_CART_CUSTOMER_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>CUSTOMER_ID</name>
+          <identifier class="java.lang.String">23525e68-0095-42e6-a8c9-66c79a0a0636</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>CUSTOMER_CART</name>
+            <identifier class="java.lang.String">11831cb1-8e6b-4fb7-8b21-1087aab69b6b</identifier>
+            <schemaName>MYSHOP</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CUSTOMER_CART_CUSTOMER_FK1</name>
+            <childObjectNames>
+              <childObjectName>CUSTOMER_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>CUSTOMER_CART</name>
+              <identifier class="java.math.BigDecimal">20060</identifier>
+              <schemaName>MYSHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>CUSTOMER_PK</name>
+        <identifier class="java.lang.String">944d34a2-200d-478d-9d4a-0bb165866387</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>CUSTOMER</name>
+          <identifier class="java.lang.String">4c227185-db58-4d7c-abdc-63690bf26164</identifier>
+          <schemaName>MYSHOP</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">7e312d10-bd1a-4abf-9a61-d3beeea631c3</identifier>
+      </ID>
+      <name>CUSTOMER_CART_PRODUCT_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>PRODUCT_ID</name>
+          <identifier class="java.lang.String">2c9356f7-1ba5-4550-9d4f-4a65b082b955</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>CUSTOMER_CART</name>
+            <identifier class="java.lang.String">11831cb1-8e6b-4fb7-8b21-1087aab69b6b</identifier>
+            <schemaName>MYSHOP</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CUSTOMER_CART_PRODUCT_FK1</name>
+            <childObjectNames>
+              <childObjectName>PRODUCT_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>CUSTOMER_CART</name>
+              <identifier class="java.math.BigDecimal">20060</identifier>
+              <schemaName>MYSHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>PRODUCT_PK</name>
+        <identifier class="java.lang.String">9820474c-a3d0-464c-abde-4c6dea4232b3</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>PRODUCT</name>
+          <identifier class="java.lang.String">368d8574-f6d3-4595-b6d1-ce863862d51a</identifier>
+          <schemaName>MYSHOP</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">a66be2ac-be77-441c-ba71-88cd6f636acd</identifier>
+      </ID>
+      <name>CUSTOMER_CART_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>CART_ID</name>
+          <identifier class="java.lang.String">b2318ffc-6bb9-44c6-95c0-eb1b0082b28f</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>CUSTOMER_CART</name>
+            <identifier class="java.lang.String">11831cb1-8e6b-4fb7-8b21-1087aab69b6b</identifier>
+            <schemaName>MYSHOP</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>MYSHOP</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CUSTOMER_CART_PK</name>
+            <childObjectNames>
+              <childObjectName>CART_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>CUSTOMER_CART</name>
+              <identifier class="java.math.BigDecimal">20060</identifier>
+              <schemaName>MYSHOP</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>CUSTOMER_CART</name>
+        <identifier class="java.math.BigDecimal">20060</identifier>
+        <schemaName>MYSHOP</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleStorageProperties</key>
+      <value class="oracle.javatools.db.ora.OracleStorageProperties">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">bf323ab8-706d-499f-9667-d49a67aec2e3</identifier>
+        </ID>
+        <bufferMode>DEFAULT</bufferMode>
+        <freelistGroups>1</freelistGroups>
+        <freelists>1</freelists>
+        <initialExtent>65536</initialExtent>
+        <initrans>1</initrans>
+        <logging>true</logging>
+        <maxExtent>2147483645</maxExtent>
+        <minExtent>1</minExtent>
+        <nextExtent>1048576</nextExtent>
+        <percentFree>10</percentFree>
+        <percentUsed>40</percentUsed>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>CUSTOMER_CART</name>
+                <identifier class="java.math.BigDecimal">20060</identifier>
+                <schemaName>MYSHOP</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <type>OracleStorageProperties</type>
+            </value>
+          </entry>
+        </properties>
+        <tablespaceID class="oracle.javatools.db.ReferenceID">
+          <name>SYSTEM</name>
+          <type>TABLESPACE</type>
+        </tablespaceID>
+      </value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>MYSHOP</name>
+  </schema>
+</table>

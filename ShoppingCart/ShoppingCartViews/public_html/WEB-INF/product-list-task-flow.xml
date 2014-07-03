@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="product-list-task-flow">
+    <default-activity id="__1">product_list</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name id="__4">productListForm</managed-bean-name>
+      <managed-bean-class id="__2">com.shopping.cart.view.ProductListForm</managed-bean-class>
+      <managed-bean-scope id="__5">view</managed-bean-scope>
+    </managed-bean>
+    <view id="product_list">
+      <page>/product_list.jsff</page>
+    </view>
+    <task-flow-call id="product-edit-task-flow">
+      <task-flow-reference>
+        <document>/WEB-INF/product-edit-task-flow.xml</document>
+        <id>product-edit-task-flow</id>
+      </task-flow-reference>
+      <input-parameter id="__11">
+        <name>productId</name>
+        <value>#{pageFlowScope.selectedProductId}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="transaction-list-taskflow">
+      <task-flow-reference>
+        <document>/WEB-INF/transaction-list-taskflow.xml</document>
+        <id>transaction-list-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="category-add-taskflow">
+      <task-flow-reference>
+        <document>/WEB-INF/category-add-taskflow.xml</document>
+        <id>category-add-taskflow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__6">
+      <from-activity-id id="__7">product_list</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome id="__10">to_edit</from-outcome>
+        <to-activity-id id="__9">product-edit-task-flow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome id="__14">view_transaction</from-outcome>
+        <to-activity-id id="__12">transaction-list-taskflow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome id="__17">add_category</from-outcome>
+        <to-activity-id id="__16">category-add-taskflow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

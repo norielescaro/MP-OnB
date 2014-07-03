@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="Products" id="ph1">
+    <af:query headerText="Search"
+              model="#{viewScope.productListForm.queryModel}"
+              queryListener="#{viewScope.productListForm.onSearchButtonClick_}"
+              value="#{viewScope.productListForm.queryModel.currentDescriptor}"
+              disclosed="true" id="q1" resultComponentId="::pc1:t1"/>
+    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+      <f:facet name="toolbar">
+        <af:toolbar id="t2">
+          <af:commandToolbarButton text="New Product" id="ctb1"
+                                   action="#{viewScope.productListForm.createNewProduct}"/>
+          <af:commandToolbarButton text="New Category" id="ctb2" action="add_category"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="statusbar"/>
+      <af:table var="row" rowBandingInterval="0" id="t1" varStatus="vs"
+                filterModel="#{viewScope.productListForm.productFilterModel}"
+                value="#{viewScope.productListForm.collectionModel}"
+                binding="#{viewScope.productListForm.productTable}"
+                rowSelection="single" filterVisible="true"
+                queryListener="#{viewScope.productListForm.onSearchButtonClick}">
+        <af:column sortable="false" headerText="Product #" id="c3"
+                   filterable="true" sortProperty="productId">
+          <af:commandLink id="ot3" text="#{row.productId}"
+                          action="#{viewScope.productListForm.viewDetailsListener}"/>
+        </af:column>
+        <af:column sortable="false" headerText="Product Name" id="c5">
+          <af:outputText value="#{row.productName}" id="ot2"/>
+        </af:column>
+        <af:column sortable="false" headerText="Price" id="c4">
+          <af:outputText value="#{row.price}" id="ot1"/>
+        </af:column>
+        <af:column sortable="false" headerText="Qty on Hand" id="c2">
+          <af:outputText value="#{row.qtyOnHand}" id="ot4"/>
+        </af:column>
+        <af:column sortable="false" headerText="Category" filterable="true" sortProperty="category.categoryName" id="c1">
+          <af:outputText value="#{row.category.categoryName}" id="ot"/>
+          <f:facet name="filter">
+            <af:selectManyChoice label="Label 1" autoSubmit="true" value="#{vs.filterCriteria['category.categoryName']}" id="smc1">
+              <f:selectItems value="#{viewScope.productListForm.categorySelectItems}" id="si1"/>
+            </af:selectManyChoice>
+          </f:facet>
+        </af:column>
+      </af:table>
+    </af:panelCollection>
+    <af:commandLink text="View Transactions" action = "view_transaction" id="cl1"/>
+  </af:panelHeader>
+</jsp:root>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="category-add-taskflow">
+    <default-activity id="__2">category_add</default-activity>
+    <managed-bean id="__11">
+      <managed-bean-name id="__10">categoryForm</managed-bean-name>
+      <managed-bean-class id="__12">com.shopping.cart.view.CategoryForm</managed-bean-class>
+      <managed-bean-scope id="__9">view</managed-bean-scope>
+    </managed-bean>
+    <view id="category_add">
+      <page>/category_add.jsff</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome id="__5">
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">*</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome id="__8">done</from-outcome>
+        <to-activity-id id="__6">taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

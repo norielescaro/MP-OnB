@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl1">
+    <af:outputFormatted value="Order" id="of1"/>
+    <br/>
+    <af:outputFormatted value="Date and Time: #{viewScope.orderForm.dateTime}" id="of2"/>
+    <br/>
+    <af:table var="row" rowBandingInterval="0" id="t1" value="#{viewScope.orderForm.customerOrder.orderItemList}">
+     <af:column sortable="false" headerText="Product" id="c5">
+        <af:outputText value="#{row.product.productName}" id="ot3"/>
+      </af:column>
+      <af:column sortable="false" headerText="Price" id="c3">
+        <af:outputText value="#{row.product.price}" id="ot2"/>
+      </af:column>
+      <af:column sortable="false" headerText="Quantity" id="c1">
+        <af:outputText value="#{row.quantity}" id="ot4"/>
+      </af:column>
+      <af:column sortable="false" headerText="Sub-Total" id="c4">
+        <af:outputText value="#{row.price}" id="ot5"/>
+      </af:column>
+    </af:table>
+    <af:activeOutputText value="Credit Card Type: #{viewScope.orderForm.customerOrder.cardType}" id="aot1"/>
+    <br/>
+    <af:activeOutputText value="Shipper: #{viewScope.orderForm.customerOrder.shipper}" id="aot2"/>
+    <br/>
+    <af:activeOutputText value="Total Price: #{viewScope.orderForm.customerOrder.orderPrice}" id="aot3"/>
+    <br/>
+    <af:commandButton text="Home" id="cb1"
+                      action="#{viewScope.orderForm.homePageCommand}"/>
+  </af:panelGroupLayout>
+</jsp:root>

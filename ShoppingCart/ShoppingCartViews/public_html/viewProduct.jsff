@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:outputFormatted value="Cart Details" id="of1"/>
+    <af:table var="row" rowBandingInterval="0" id="t1"
+              value="#{sessionScope.userSession.cartItemList}" width="498"
+              inlineStyle="height:181px;" partialTriggers="cb4 ::cb3">
+      <af:column sortable="false" headerText="Product" id="c5">
+        <af:outputText value="#{row.product.productName}" id="ot3"/>
+      </af:column>
+      <af:column sortable="false" headerText="Price" id="c3">
+        <af:outputText value="#{row.price}" id="ot2"/>
+      </af:column>
+      <af:column sortable="false" headerText="Quantity" id="c1">
+        <af:inputText label="" value="#{row.quantity}" id="it1"
+                      validator="#{sessionScope.userSession.validateQuantities}"
+                      readOnly="false">
+          <f:attribute name="data" value="#{row}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortable="false" headerText="Sub-Total" id="c4">
+        <af:outputText value="#{row.price}" id="ot4"/>
+      </af:column>
+      <af:column sortable="false" headerText="" id="c2">
+        <af:commandButton text="Delete" id="cb4"
+                          actionListener="#{sessionScope.userSession.onClickedDeleteListener}"
+                          partialSubmit="false" immediate="true">
+          <f:attribute name="data" value="#{row}"/>
+        </af:commandButton>
+      </af:column>
+    </af:table>
+    <af:outputText value="Total Price : #{sessionScope.userSession.totalPrice}" id="ot1"/>
+    <af:selectOneRadio label="Select Payment Credit Card Type: " id="sor1"
+                       showRequired="true"
+                       value="#{sessionScope.userSession.cardType}">
+      <af:selectItem label="VISA" value="VISA" id="si1"/>
+      <af:selectItem label="Master Card" value="Master Card" id="si2"/>
+    </af:selectOneRadio>
+    <af:selectOneRadio label="Select Shipper" id="sor2" value="#{sessionScope.userSession.shipper}">
+      <af:selectItem label="Speedy Express" value="Speedy Express" id="si3"/>
+      <af:selectItem label="United Package" value="United Package" id="si4"/>
+      <af:selectItem label="Federal Shipping" value="Federal Shipping"
+                     id="si5"/>
+    </af:selectOneRadio>
+    <af:commandButton text="Home" id="cb1"
+                      action="#{sessionScope.userSession.goToHomePageCommand}"/>
+    <af:commandButton text="Clear" id="cb3" partialSubmit="true"
+                      actionListener="#{sessionScope.userSession.onClickClearListener}"/>
+    <af:commandButton text="Finalize Order" id="cb2"
+                      action="#{sessionScope.userSession.finalizeOrderCommand}"/>
+  </af:panelGroupLayout>
+</jsp:root>

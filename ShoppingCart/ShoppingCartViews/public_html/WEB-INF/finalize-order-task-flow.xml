@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="finalize-order-task-flow">
+    <default-activity id="__1">finalize_order</default-activity>
+    <input-parameter-definition id="__13">
+      <name id="__12">order</name>
+      <value>#{pageFlowScope.order}</value>
+    </input-parameter-definition>
+    <managed-bean id="__9">
+      <managed-bean-name id="__11">orderForm</managed-bean-name>
+      <managed-bean-class id="__10">com.shopping.cart.view.OrderForm</managed-bean-class>
+      <managed-bean-scope id="__8">view</managed-bean-scope>
+    </managed-bean>
+    <view id="finalize_order">
+      <page>/finalize_order.jsff</page>
+    </view>
+    <task-flow-return id="home">
+      <outcome id="__2">
+        <name>home</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">finalize_order</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__7">home</from-outcome>
+        <to-activity-id id="__6">home</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
