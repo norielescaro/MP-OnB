@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="site-task-flow">
+    <default-activity id="__1">home-page-task-flow</default-activity>
+    <task-flow-call id="task-flow-definition">
+      <task-flow-reference>
+        <document>/WEB-INF/task-flow-definition.xml</document>
+        <id>task-flow-definition</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="registration-task-flow">
+      <task-flow-reference>
+        <document>/WEB-INF/registration-task-flow.xml</document>
+        <id>registration-task-flow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="home-page-task-flow">
+      <task-flow-reference>
+        <document>/WEB-INF/home-page-task-flow.xml</document>
+        <id>home-page-task-flow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="view-cart-task-flow">
+      <task-flow-reference>
+        <document>/WEB-INF/view-product-task-flow.xml</document>
+        <id>view-product-task-flow</id>
+      </task-flow-reference>
+      <return-value id="__39">
+        <name>order</name>
+        <value>#{pageFlowScope.order}</value>
+      </return-value>
+    </task-flow-call>
+    <task-flow-call id="finalize-order-task-flow">
+      <task-flow-reference>
+        <document>/WEB-INF/finalize-order-task-flow.xml</document>
+        <id>finalize-order-task-flow</id>
+      </task-flow-reference>
+      <input-parameter id="__40">
+        <name>order</name>
+        <value>#{pageFlowScope.order}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="product-list-task-flow">
+      <task-flow-reference>
+        <document>/WEB-INF/product-list-task-flow.xml</document>
+        <id>product-list-task-flow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">task-flow-definition</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__6">register</from-outcome>
+        <to-activity-id id="__4">registration-task-flow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome id="__9">home</from-outcome>
+        <to-activity-id id="__8">home-page-task-flow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id id="__11">home-page-task-flow</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome id="__12">login</from-outcome>
+        <to-activity-id id="__13">task-flow-definition</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome id="__17">view_cart</from-outcome>
+        <to-activity-id id="__16">view-cart-task-flow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__42">
+        <from-outcome id="__43">admin_page</from-outcome>
+        <to-activity-id id="__41">product-list-task-flow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__18">
+      <from-activity-id id="__19">registration-task-flow</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome id="__22">login</from-outcome>
+        <to-activity-id id="__21">task-flow-definition</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__25">
+        <from-outcome id="__24">home</from-outcome>
+        <to-activity-id id="__23">home-page-task-flow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id id="__27">view-cart-task-flow</from-activity-id>
+      <control-flow-case id="__28">
+        <from-outcome id="__30">home</from-outcome>
+        <to-activity-id id="__29">home-page-task-flow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__32">
+        <from-outcome id="__33">submit_order</from-outcome>
+        <to-activity-id id="__31">finalize-order-task-flow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__34">
+      <from-activity-id id="__35">finalize-order-task-flow</from-activity-id>
+      <control-flow-case id="__36">
+        <from-outcome id="__37">home</from-outcome>
+        <to-activity-id id="__38">home-page-task-flow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

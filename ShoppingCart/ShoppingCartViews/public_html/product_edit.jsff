@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:sc="/soadevComponentLib">
+  <af:panelHeader text="Product Edit" id="ph1"
+                  partialTriggers="ctb1 ctb2 ctb3 commandToolbarButton1">
+    <f:facet name="toolbar">
+      <af:toolbar id="t1">
+        <af:commandToolbarButton text="Edit" id="ctb1"
+                                 rendered="#{!pageFlowScope.editMode}"
+                                 actionListener="#{viewScope.productEditForm.edit}"/>
+        <af:commandToolbarButton text="Save" id="ctb2"
+                                 rendered="#{pageFlowScope.editMode}"
+                                 actionListener="#{viewScope.productEditForm.save}"/>
+        <af:commandToolbarButton text="Cancel" id="ctb3"
+                                 rendered="#{pageFlowScope.editMode}"
+                                 action="#{viewScope.productEditForm.cancel}"/>
+        <af:commandToolbarButton text="Close"
+                                 rendered="#{!pageFlowScope.editMode}"
+                                 action="done" id="commandToolbarButton1"/>
+      </af:toolbar>
+    </f:facet>
+    <af:panelFormLayout id="pfl1">
+      <af:inputText label="Product #" disabled="true" autoSubmit="true"
+                    value="#{viewScope.productEditForm.product.productId}"
+                    id="it1"/>
+      <af:inputText disabled="#{!pageFlowScope.editMode}" label="Name"
+                    autoSubmit="true"
+                    value="#{viewScope.productEditForm.product.productName}"
+                    id="it2"/>
+      <af:inputText disabled="#{!pageFlowScope.editMode}" label="Qty on Hand"
+                    autoSubmit="true"
+                    value="#{viewScope.productEditForm.product.qtyOnHand}"
+                    id="it3" rows="3"/>
+      <af:inputText disabled="#{!pageFlowScope.editMode}" label="Price"
+                    autoSubmit="true"
+                    value="#{viewScope.productEditForm.product.price}"
+                    id="it4"/>
+      <af:panelLabelAndMessage label="Category" id="plam1">
+        <sc:inputListOfValues id="ilov1" autoSubmit="true" disabled="#{!pageFlowScope.editMode}"
+                              value="#{viewScope.productEditForm.product.category}"
+                              model="#{viewScope.productEditForm.categoryLOV}"
+                              converter="#{viewScope.productEditForm.categoryLOV.converter}"
+                              simple="true"/>
+      </af:panelLabelAndMessage>
+    </af:panelFormLayout>
+  </af:panelHeader>
+</jsp:root>

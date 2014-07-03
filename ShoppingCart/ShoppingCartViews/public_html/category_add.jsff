@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="Add Category" id="ph1">
+  <f:facet name="toolbar">
+      <af:toolbar id="t1">
+        <af:commandToolbarButton text="Cancel" id="ctb3"
+                                 action="done"/>
+      </af:toolbar>
+    </f:facet>
+    <af:inputText label="Category Name" id="it1" autoSubmit="true" value = "#{viewScope.categoryForm.categoryName}" />
+    <af:inputText label="Category Description" id="it2" rows="4" autoSubmit="true"  value = "#{viewScope.categoryForm.categoryDescription}"/>
+    <af:commandButton text="Add Category" action = "#{viewScope.categoryForm.submitCommand}" id="cb1"/>
+  </af:panelHeader>
+</jsp:root>

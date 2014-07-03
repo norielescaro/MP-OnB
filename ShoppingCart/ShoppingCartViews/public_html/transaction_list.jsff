@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="Customer Transactions" id="ph1">
+    <af:panelLabelAndMessage label="Customer" id="plam1">
+      <af:inputListOfValues popupTitle="Search Customer" id="ilov1"
+                            model = "#{viewScope.transactionForm.customerLOV}"
+                            value = "#{viewScope.transactionForm.customer}"
+                            converter="#{viewScope.transactionForm.customerLOV.converter}"
+                            simple="true" autoSubmit="true"
+                            returnPopupListener="#{viewScope.transactionForm.returnPopUpListener}"/>
+    </af:panelLabelAndMessage>
+      <af:table var="row" rowBandingInterval="0" id="t1"
+                binding="#{viewScope.transactionForm.customerOrderTable}"
+                value="#{viewScope.transactionForm.customerOrderList}"
+                partialTriggers="::ilov1" width="640">
+        <af:column sortable="false" headerText="Order ID" id="c2">
+            <af:commandLink text="#{row.orderId}" id="cl2"
+                            partialSubmit="true"
+                            actionListener="#{viewScope.transactionForm.orderLinkListener}">
+          <f:attribute name="data" value="#{row}"/>
+        </af:commandLink>
+      </af:column>
+        <af:column sortable="false" headerText="Customer" id="c4">
+          <af:outputText value="#{row.customer.customerUsername}" id="ot2"/>
+        </af:column>
+        <af:column sortable="false" headerText="Date of Order" id="c1">
+          <af:outputText value="#{row.orderDate}" id="ot1"/>
+        </af:column>
+        <af:column sortable="false" headerText="Total Price" id="c5">
+          <af:outputText value="#{row.orderPrice}" id="ot5"/>
+        </af:column>
+        <af:column sortable="false" headerText="Payment Card Type" id="c3">
+          <af:outputText value="#{row.cardType}" id="ot4"/>
+        </af:column>
+        <af:column sortable="false" headerText="Shipper" id="c6">
+          <af:outputText value="#{row.shipper}" id="ot6"/>
+        </af:column>
+      </af:table>
+    <af:commandLink text="Back" action = "done" id="cl1"/>
+    <af:popup id="p1" binding="#{viewScope.transactionForm.popupDialog}">
+      <af:dialog id="d1" type="cancel">
+        <af:table var="row" rowBandingInterval="0" id="t2" value = "#{viewScope.transactionForm.selectedCustomerOrder.orderItemList}"
+                  partialTriggers="::t1:cl2">
+          <af:column sortable="false" headerText="Product Name" id="c11">
+            <af:outputText value="#{row.product.productName}" id="ot10"/>
+          </af:column>
+          <af:column sortable="false" headerText="Quantity" id="c9">
+            <af:outputText value="#{row.quantity}" id="ot7"/>
+          </af:column>
+          <af:column sortable="false" headerText="Unit Price" id="c7">
+            <af:outputText value="#{row.product.price}" id="ot8"/>
+          </af:column>
+          <af:column sortable="false" headerText="Sub-Total" id="c8">
+            <af:outputText value="#{row.price}" id="ot3"/>
+          </af:column>
+        </af:table>
+      </af:dialog>
+    </af:popup>
+  </af:panelHeader>
+</jsp:root>

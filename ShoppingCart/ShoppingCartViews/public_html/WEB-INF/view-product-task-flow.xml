@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="view-product-task-flow">
+    <default-activity id="__1">view_cart</default-activity>
+    <return-value-definition id="__16">
+      <name id="__17">order</name>
+      <value>#{pageFlowScope.order}</value>
+    </return-value-definition>
+    <view id="view_cart">
+      <page>/viewProduct.jsff</page>
+    </view>
+    <task-flow-return id="home">
+      <outcome id="__6">
+        <name>home</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="submit_order">
+      <outcome id="__12">
+        <name>submit_order</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">view_cart</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">back</from-outcome>
+        <to-activity-id id="__9">home</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome id="__15">finalize</from-outcome>
+        <to-activity-id id="__14">submit_order</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

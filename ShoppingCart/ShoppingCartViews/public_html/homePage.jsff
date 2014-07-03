@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html">
+  <af:panelGroupLayout id="pgl1">
+    <af:selectOneChoice label="Select Category" id="soc1"
+                        value="#{viewScope.homePageForm.categoryId}"
+                        valueChangeListener="#{viewScope.homePageForm.onCategoryChangeListener}"
+                        autoSubmit="true">
+      <f:selectItems value="#{viewScope.homePageForm.categoryCodeSelectItems}"
+                     id="si1"/>
+    </af:selectOneChoice>
+    <af:outputFormatted value="List of Products" id="of1"/>
+    <af:table var="row" rowBandingInterval="0" id="t1" varStatus="vs"
+              value="#{viewScope.homePageForm.productList}" width="563"
+              partialTriggers="::soc1">
+      <af:column sortable="false" headerText="Product Name" id="c2">
+        <af:outputText value="#{row.productName}" id="ot3"/>
+      </af:column>
+      <af:column sortable="false" headerText="Price" id="c3">
+        <af:outputText value="#{row.price}" id="ot2"/>
+      </af:column>
+      <af:column sortable="false" headerText="Quantity Available" id="c1">
+        <af:outputText value="#{row.qtyOnHand}" id="ot1"/>
+      </af:column>
+      <af:column sortable="false" headerText="" id="c4">
+        <af:commandButton text="Add to cart" id="cb2" partialSubmit="true"
+                          actionListener="#{viewScope.homePageForm.addToCartListener}"
+                          disabled="#{row.qtyOnHand == 0}">
+          <f:attribute name="data" value="#{row}"/>
+        </af:commandButton>
+      </af:column>
+    </af:table>
+    <af:popup id="p1" binding="#{viewScope.homePageForm.popupDialog}">
+      <af:dialog id="d1" type="none">
+        <af:inputText label="Enter the quantity:" id="it1"
+                      value="#{viewScope.homePageForm.quantity}"
+                      partialTriggers="cb1"
+                      validator="#{viewScope.homePageForm.validateQuantity}"/>
+        <af:commandButton text="Submit" id="cb1" partialSubmit="true"
+                          actionListener="#{viewScope.homePageForm.submitButtonListener}"/>
+      </af:dialog>
+    </af:popup>
+    <af:commandButton text="View My Cart" id="cb3"
+                      action="#{viewScope.homePageForm.goToCartCommand}"/>
+    <af:commandButton text="Go to Admin Page" id="cb4" action="#{viewScope.homePageForm.goToAdminPageCommand}"/>
+    <af:popup id="p2">
+      <af:dialog id="d2" type="none">
+        <af:inputText label="Username:"
+                      value="#{viewScope.homePageForm.username}" id="it2"/>
+        <af:inputText label="Password"
+                      value="#{viewScope.homePageForm.password}" id="it3"
+                      secret="true"/>
+        <af:commandButton text="Submit" id="cb5"
+                          action="#{viewScope.homePageForm.goToAdminPageCommand}"/>
+      </af:dialog>
+    </af:popup>
+  </af:panelGroupLayout>
+</jsp:root>
